@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Earth Shift"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/PNG/icon.svg"
 
 [display]
 
