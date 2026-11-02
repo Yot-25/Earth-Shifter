@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://d18tf6wmv1v7" path="res://Scritps/Player/ability.gd" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c5xjdarw7q2t7" path="res://Scenes/Player/preview_block.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://0wsxbm0jrspn" path="res://Scenes/Player/Earth_Block.tscn" id="3_jjvhh"]
+[ext_resource type="Script" uid="uid://c52a2qpbn4m12" path="res://Scenes/ability_holder.gd" id="5_21xkr"]
+[ext_resource type="Texture2D" uid="uid://cfbahpesailuu" path="res://Assets/Textures/Panorama_Sky_04-512x512.png" id="5_kry3j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egdpp"]
 
@@ -13,14 +15,17 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egdpp"]
 
-[node name="Main" type="Node3D" unique_id=38235107]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kry3j"]
+panorama = ExtResource("5_kry3j")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1027494950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51374245, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 1, 30)
+[sub_resource type="Sky" id="Sky_jjvhh"]
+sky_material = SubResource("PanoramaSkyMaterial_kry3j")
+
+[sub_resource type="Environment" id="Environment_egdpp"]
+background_mode = 2
+sky = SubResource("Sky_jjvhh")
+
+[node name="Main" type="Node3D" unique_id=38235107]
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1118582324 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3970001, 0)
@@ -48,17 +53,70 @@ target_position = Vector3(0, 0, -8)
 collision_mask = 3
 collide_with_areas = true
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120626737]
-transform = Transform3D(1, 0, 0, 0, 0.4262586, 0.90460134, 0, -0.90460134, 0.4262586, 0, 6.441434, 0)
+[node name="AbilityHolder" type="Node3D" parent="." unique_id=2048647650]
+script = ExtResource("5_21xkr")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1328013140]
+[node name="Enviroment" type="Node3D" parent="." unique_id=519573426]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1428902153]
+[node name="StaticBody3D" type="StaticBody3D" parent="Enviroment" unique_id=1328013140]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/StaticBody3D" unique_id=1428902153]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
 mesh = SubResource("BoxMesh_egdpp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1964938543]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/StaticBody3D" unique_id=1964938543]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
 shape = SubResource("BoxShape3D_egdpp")
 
-[node name="AbilityHolder" type="Node3D" parent="." unique_id=2048647650]
+[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment" unique_id=1027494950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51374245, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(30, 1, 30)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment" unique_id=138493218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3261628, -21.483128)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(30, 3.0177002, 30)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment" unique_id=1362182479]
+transform = Transform3D(1, 0, 0, 0, 0.9918459, -0.12744318, 0, 0.12744318, 0.9918459, -29.325153, 1.5416179, -17.421799)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+size = Vector3(30, 8.912659, 30)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment" unique_id=132779565]
+environment = SubResource("Environment_egdpp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment" unique_id=120626737]
+transform = Transform3D(1, 0, 0, 0, 0.4262586, 0.90460134, 0, -0.90460134, 0.4262586, 0, 6.441434, 0)
+
+[node name="UI" type="Control" parent="." unique_id=1897131793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI" unique_id=670805504]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.789978
+offset_top = -4.5450134
+offset_right = 35.210022
+offset_bottom = 35.454987
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+
+[connection signal="placeBlock" from="Player/Ability" to="AbilityHolder" method="_on_ability_place_block"]
