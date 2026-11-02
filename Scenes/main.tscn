@@ -1,30 +1,64 @@
 [gd_scene format=3 uid="uid://dh7ewdklp07ot"]
 
 [ext_resource type="Script" uid="uid://dge6nxqcmxu8u" path="res://Scritps/Player/movement.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://d18tf6wmv1v7" path="res://Scritps/Player/ability.gd" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c5xjdarw7q2t7" path="res://Scenes/Player/preview_block.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://0wsxbm0jrspn" path="res://Scenes/Player/Earth_Block.tscn" id="3_jjvhh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egdpp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_egdpp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_egdpp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egdpp"]
 
 [node name="Main" type="Node3D" unique_id=38235107]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1027494950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51374245, 0)
 use_collision = true
+collision_layer = 3
+collision_mask = 3
 size = Vector3(30, 1, 30)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1118582324]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1118582324 groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3970001, 0)
 script = ExtResource("1_jjgbg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=951050443]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=951050443]
 shape = SubResource("CapsuleShape3D_egdpp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=1839327057]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1839327057]
 mesh = SubResource("CapsuleMesh_egdpp")
 
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=949777008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5928941, 0)
+[node name="Ability" type="Node3D" parent="Player" unique_id=666731462]
+script = ExtResource("2_bo1nx")
+earthblock = ExtResource("3_jjvhh")
+
+[node name="PreviewBlock" parent="Player/Ability" unique_id=1418466424 instance=ExtResource("3_8gbba")]
+
+[node name="CameraPivot" type="Node3D" parent="Player" unique_id=792772035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73643374, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot" unique_id=949777008]
+
+[node name="RayCast3D" type="RayCast3D" parent="Player/CameraPivot/Camera3D" unique_id=745003006]
+target_position = Vector3(0, 0, -8)
+collision_mask = 3
+collide_with_areas = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120626737]
 transform = Transform3D(1, 0, 0, 0, 0.4262586, 0.90460134, 0, -0.90460134, 0.4262586, 0, 6.441434, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1328013140]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1428902153]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
+mesh = SubResource("BoxMesh_egdpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1964938543]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
+shape = SubResource("BoxShape3D_egdpp")
+
+[node name="AbilityHolder" type="Node3D" parent="." unique_id=2048647650]

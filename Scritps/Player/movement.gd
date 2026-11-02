@@ -1,11 +1,28 @@
 extends CharacterBody3D
 
+@onready var camera_3d: Camera3D = $CameraPivot/Camera3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var screenSize: Vector2
+@export var rotationSpeed: float = 20
+@export var xRotationLimit: float = 60
+@onready var character_body_3d: CharacterBody3D = $"."
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	screenSize = get_viewport().get_visible_rect().size
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotation_degrees.y -= event.relative.x / rotationSpeed
+		camera_3d.rotation_degrees.x -= event.relative.y /rotationSpeed
+		camera_3d.rotation_degrees.x = clamp(camera_3d.rotation_degrees.x, -xRotationLimit, xRotationLimit)
+		
+		
 
 func _physics_process(delta: float) -> void:
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
