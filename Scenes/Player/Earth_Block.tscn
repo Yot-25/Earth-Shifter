@@ -6,14 +6,15 @@
 size = Vector3(1, 1.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egdpp"]
+size = Vector3(1, 1.4899902, 1)
 
 [node name="Earth Block" type="AnimatableBody3D" unique_id=1922935921]
 script = ExtResource("1_x31ho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=445839707]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.785, 0)
 mesh = SubResource("BoxMesh_egdpp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1898063042]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7817041, 0)
 shape = SubResource("BoxShape3D_egdpp")

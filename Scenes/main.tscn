@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dge6nxqcmxu8u" path="res://Scritps/Player/movement.gd" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://d18tf6wmv1v7" path="res://Scritps/Player/ability.gd" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://c5xjdarw7q2t7" path="res://Scenes/Player/preview_block.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://0wsxbm0jrspn" path="res://Scenes/Player/Earth_Block.tscn" id="3_jjvhh"]
 [ext_resource type="Script" uid="uid://c52a2qpbn4m12" path="res://Scenes/ability_holder.gd" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://cfbahpesailuu" path="res://Assets/Textures/Panorama_Sky_04-512x512.png" id="5_kry3j"]
@@ -10,6 +9,11 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egdpp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_egdpp"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_egdpp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_egdpp"]
+radius = 0.44551378
 
 [sub_resource type="BoxMesh" id="BoxMesh_egdpp"]
 
@@ -41,8 +45,6 @@ mesh = SubResource("CapsuleMesh_egdpp")
 script = ExtResource("2_bo1nx")
 earthblock = ExtResource("3_jjvhh")
 
-[node name="PreviewBlock" parent="Player/Ability" unique_id=1418466424 instance=ExtResource("3_8gbba")]
-
 [node name="CameraPivot" type="Node3D" parent="Player" unique_id=792772035]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73643374, 0)
 
@@ -52,6 +54,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73643374, 0)
 target_position = Vector3(0, 0, -8)
 collision_mask = 3
 collide_with_areas = true
+
+[node name="LeftHand" type="Area3D" parent="Player/CameraPivot/Camera3D" unique_id=618193770]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.6267582, -0.73643374, -0.90350676)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraPivot/Camera3D/LeftHand" unique_id=413407288]
+mesh = SubResource("SphereMesh_egdpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CameraPivot/Camera3D/LeftHand" unique_id=530884235]
+shape = SubResource("SphereShape3D_egdpp")
+
+[node name="Hands" type="Node3D" parent="Player/CameraPivot" unique_id=885926930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.73643374, 0)
 
 [node name="AbilityHolder" type="Node3D" parent="." unique_id=2048647650]
 script = ExtResource("5_21xkr")
@@ -120,3 +134,4 @@ scale = Vector2(0.2, 0.2)
 color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 
 [connection signal="placeBlock" from="Player/Ability" to="AbilityHolder" method="_on_ability_place_block"]
+[connection signal="body_entered" from="Player/CameraPivot/Camera3D/LeftHand" to="Player" method="_on_left_hand_body_entered"]
