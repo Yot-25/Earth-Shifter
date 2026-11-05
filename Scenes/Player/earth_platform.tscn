@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5rjd0ocjj0y4"]
+
+[ext_resource type="Script" uid="uid://cxyvc6611u7oa" path="res://Scritps/Player/earth_platform.gd" id="1_kqeml"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_egdpp"]
+size = Vector3(2, 1.4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqeml"]
+size = Vector3(2, 1.4, 2)
+
+[node name="EarthPlatform" type="AnimatableBody3D" unique_id=1078216465]
+script = ExtResource("1_kqeml")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=61187032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.72991925, 0)
+mesh = SubResource("BoxMesh_egdpp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=932215909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7304146, 0)
+shape = SubResource("BoxShape3D_kqeml")

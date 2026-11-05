@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bj8tcdsp43euw"]
+
+[ext_resource type="Script" uid="uid://d0lmf5xg7ugpt" path="res://Scritps/Enviroment/water.gd" id="1_nph0p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_egdpp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tw7do"]
+albedo_color = Color(0.3019608, 0.54509807, 0.54509807, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7v0t"]
+size = Vector3(2, 1, 2)
+
+[node name="Water" type="Node3D" unique_id=1063709124]
+script = ExtResource("1_nph0p")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1124785677]
+collision_layer = 2
+monitorable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=2142638085]
+mesh = SubResource("PlaneMesh_egdpp")
+surface_material_override/0 = SubResource("StandardMaterial3D_tw7do")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1097101090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4845153, 0)
+shape = SubResource("BoxShape3D_d7v0t")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -8,6 +8,9 @@ size = Vector3(1, 1.5, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_egdpp"]
 size = Vector3(1, 1.4899902, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7v0t"]
+size = Vector3(1.6, 2.019, 1.6)
+
 [node name="Earth Block" type="AnimatableBody3D" unique_id=1922935921]
 script = ExtResource("1_x31ho")
 
@@ -18,3 +21,9 @@ mesh = SubResource("BoxMesh_egdpp")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1898063042]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7817041, 0)
 shape = SubResource("BoxShape3D_egdpp")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=685140259 groups=["Block"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=868703676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015625, -0.5461792, 0)
+shape = SubResource("BoxShape3D_d7v0t")

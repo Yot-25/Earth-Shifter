@@ -4,7 +4,7 @@ extends Node3D
 
 var earth_block = preload("res://Scenes/Player/Earth_Block.tscn")
 var spawnedBlocks: Array
-
+var blockLimit: int = 3
 
 func AddBlock(rayPos: Vector3, rayNormal):
 	var block = earth_block.instantiate()
@@ -19,9 +19,14 @@ func AddBlock(rayPos: Vector3, rayNormal):
 		newTransform = newTransform.rotated_local(Vector3.RIGHT, PI / 2.0)
 	block.global_transform = newTransform
 	add_child(block)
+	spawnedBlocks.append(block)
+	if spawnedBlocks.size() > 3:
+		var firstBlock = spawnedBlocks.pop_front()
+		if is_instance_valid(firstBlock):
+			firstBlock.queue_free()
+
 
 
 func _on_ability_place_block(rayPos: Vector3, rayNormal) -> void:
 	print("Block spawned")
 	AddBlock(rayPos, rayNormal)
-	
