@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cx1jf4a1jjwyq"]
+
+[ext_resource type="Script" uid="uid://byllepnvvlavv" path="res://Scenes/player.gd" id="1_uvnfx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hse1"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_3in7d"]
+
+[node name="player" type="CharacterBody2D" unique_id=685150532]
+script = ExtResource("1_uvnfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1693123886]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_5hse1")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=606276764]
+position = Vector2(0, -7)
+scale = Vector2(4.5, 13.750001)
+mesh = SubResource("QuadMesh_3in7d")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1843671749]
+zoom = Vector2(5, 5)
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
+[node name="stateMachine" type="Node" parent="." unique_id=435908980]
+
+[node name="idleState" type="Node" parent="stateMachine" unique_id=1327834953]
+
+[node name="walkState" type="Node" parent="stateMachine" unique_id=1610065569]
+
+[node name="riseState" type="Node" parent="stateMachine" unique_id=627714587]
+
+[node name="jumpState" type="Node" parent="stateMachine" unique_id=1719445707]
+
+[node name="attackState" type="Node" parent="stateMachine" unique_id=1502767952]

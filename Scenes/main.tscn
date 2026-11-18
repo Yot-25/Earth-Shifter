@@ -1,146 +1,110 @@
-[gd_scene format=3 uid="uid://dh7ewdklp07ot"]
+[gd_scene format=4 uid="uid://dh7ewdklp07ot"]
 
-[ext_resource type="Script" uid="uid://dge6nxqcmxu8u" path="res://Scritps/Player/movement.gd" id="1_jjgbg"]
-[ext_resource type="Script" uid="uid://d18tf6wmv1v7" path="res://Scritps/Player/ability.gd" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://c37x1gifh6qc8" path="res://Scenes/Enviroment/lava.tscn" id="3_kry3j"]
-[ext_resource type="Script" uid="uid://c52a2qpbn4m12" path="res://Scenes/ability_holder.gd" id="5_21xkr"]
-[ext_resource type="Texture2D" uid="uid://cfbahpesailuu" path="res://Assets/Textures/Panorama_Sky_04-512x512.png" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://bj8tcdsp43euw" path="res://Scenes/Enviroment/water.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cx1jf4a1jjwyq" path="res://Scenes/Player/player.tscn" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://c2ivpa52ny15w" path="res://Assets/PNG/tilemap.png" id="2_bo1nx"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_egdpp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
+texture = ExtResource("2_bo1nx")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+1:0/0/terrains_peering_bit/left_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/bottom_side = 0
+0:1/0/terrains_peering_bit/top_side = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:1/0/terrains_peering_bit/top_side = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_left_corner = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_egdpp"]
+[sub_resource type="TileSet" id="TileSet_egdpp"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Ground"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "grass"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[sub_resource type="BoxMesh" id="BoxMesh_egdpp"]
+[node name="Main" type="Node2D" unique_id=815971939]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_egdpp"]
+[node name="player" parent="." unique_id=685150532 instance=ExtResource("1_bo1nx")]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kry3j"]
-panorama = ExtResource("5_kry3j")
+[node name="World" type="Node2D" parent="." unique_id=342995154]
 
-[sub_resource type="Sky" id="Sky_jjvhh"]
-sky_material = SubResource("PanoramaSkyMaterial_kry3j")
-
-[sub_resource type="Environment" id="Environment_egdpp"]
-background_mode = 2
-sky = SubResource("Sky_jjvhh")
-
-[node name="Main" type="Node3D" unique_id=38235107]
-
-[node name="Player" type="CharacterBody3D" parent="." unique_id=1118582324 groups=["Player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3970001, 0)
-script = ExtResource("1_jjgbg")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=951050443]
-shape = SubResource("CapsuleShape3D_egdpp")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=1839327057]
-mesh = SubResource("CapsuleMesh_egdpp")
-
-[node name="Ability" type="Node3D" parent="Player" unique_id=666731462]
-script = ExtResource("2_bo1nx")
-
-[node name="CameraPivot" type="Node3D" parent="Player" unique_id=792772035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73643374, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot" unique_id=949777008]
-
-[node name="RayCast3D" type="RayCast3D" parent="Player/CameraPivot/Camera3D" unique_id=745003006]
-target_position = Vector3(0, 0, -6)
-hit_back_faces = false
-collide_with_areas = true
-
-[node name="AbilityHolder" type="Node3D" parent="." unique_id=2048647650]
-script = ExtResource("5_21xkr")
-
-[node name="Enviroment" type="Node3D" parent="." unique_id=519573426]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Enviroment" unique_id=1328013140]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/StaticBody3D" unique_id=1428902153]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
-mesh = SubResource("BoxMesh_egdpp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enviroment/StaticBody3D" unique_id=1964938543]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 10.235049, 0.1877842, 0)
-shape = SubResource("BoxShape3D_egdpp")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Enviroment" unique_id=1027494950]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.51374245, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 1, 30)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="Enviroment" unique_id=1599077045]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.281286, -1.533536, 0)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 1, 30)
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="Enviroment" unique_id=1730749523]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.406246, 1.3812685, -0.59005356)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(25.995667, 12.114746, 30)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="Enviroment" unique_id=138493218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3261628, -21.483128)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 3.0177002, 30)
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="Enviroment" unique_id=1362182479]
-transform = Transform3D(1, 0, 0, 0, 0.9918459, -0.12744318, 0, 0.12744318, 0.9918459, -29.325153, 1.5416179, -17.421799)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 8.912659, 30)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="Enviroment" unique_id=1560351539]
-transform = Transform3D(-0.21600793, 0.96843004, -0.12443445, -0.9763916, -0.21424659, 0.027528739, 0, 0.12744318, 0.9918459, -17.215206, 1.5416179, 4.317497)
-use_collision = true
-collision_layer = 3
-collision_mask = 3
-size = Vector3(30, 8.912659, 30)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Enviroment" unique_id=132779565]
-environment = SubResource("Environment_egdpp")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Enviroment" unique_id=120626737]
-transform = Transform3D(1, 0, 0, 0, 0.4262586, 0.90460134, 0, -0.90460134, 0.4262586, 0, 6.441434, 0)
-
-[node name="UI" type="Control" parent="." unique_id=1897131793]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=670805504]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.789978
-offset_top = -4.5450134
-offset_right = 35.210022
-offset_bottom = 35.454987
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
-
-[node name="Lava" parent="." unique_id=1418302822 instance=ExtResource("3_kry3j")]
-transform = Transform3D(6.985, 0, 0, 0, 6.985, 0, 0, 0, 6.985, 20.519367, -0.1749332, 0.7565117)
-
-[node name="Water" parent="." unique_id=1063709124 instance=ExtResource("6_21xkr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2384653, 0.27729368, 0)
-
-[connection signal="placeBlock" from="Player/Ability" to="AbilityHolder" method="_on_ability_place_block"]
+[node name="TileMapLayer" type="TileMapLayer" parent="World" unique_id=1495332338]
+tile_map_data = PackedByteArray("AAD8/wEAAAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAMAAAD+/wAAAAABAAAAAAD+/wEAAAABAAEAAAD//wAAAAABAAAAAAD//wEAAAABAAEAAAAAAAAAAAABAAAAAAAAAAEAAAABAAEAAAABAAAAAAACAAAAAAABAAEAAAABAAMAAAACAAEAAAABAAAAAAD8/wIAAAAAAAEAAAD8/wMAAAAAAAEAAAD8/wQAAAAAAAIAAAD9/wIAAAABAAEAAAD9/wMAAAABAAEAAAD9/wQAAAABAAIAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD+/wQAAAABAAIAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAD//wQAAAABAAIAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAAAAAQAAAABAAIAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAIAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAIAAAADAAEAAAABAAAAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAIAAAAEAAEAAAABAAAAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAIAAAAFAAEAAAABAAAAAAAFAAIAAAABAAEAAAAFAAMAAAABAAEAAAAFAAQAAAABAAIAAAAGAAEAAAABAAAAAAAHAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAAAAMAAAAKAAEAAAABAAEAAAALAAEAAAABAAEAAAALAAIAAAABAAEAAAAMAAIAAAABAAEAAAALAAMAAAABAAEAAAAKAAMAAAABAAEAAAAJAAIAAAABAAEAAAAIAAIAAAABAAEAAAAHAAIAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAIAAAAIAAQAAAABAAIAAAAIAAMAAAABAAEAAAAGAAQAAAABAAIAAAAJAAMAAAABAAEAAAAJAAQAAAABAAIAAAAKAAIAAAABAAEAAAALAAQAAAACAAIAAAAKAAQAAAABAAIAAAAJAAAAAAAAAAAAAAAKAAAAAAABAAAAAAALAAAAAAAAAAMAAAAMAAAAAAABAAEAAAALAP//AAAAAAEAAAALAP7/AAAAAAEAAAAMAP7/AAABAAEAAAAMAP3/AAABAAAAAAANAP3/AAABAAAAAAANAP7/AAABAAEAAAAOAP7/AAABAAMAAAAPAP7/AAABAAAAAAAPAP//AAABAAEAAAAOAP//AAABAAEAAAANAAAAAAABAAEAAAAMAP//AAABAAEAAAALAP3/AAAAAAAAAAAOAP3/AAACAAAAAAANAP//AAABAAEAAAANAAEAAAABAAEAAAANAAIAAAABAAEAAAANAAMAAAABAAEAAAAMAAMAAAABAAIAAAAMAAEAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAABAAEAAAAOAAEAAAABAAEAAAAPAAEAAAABAAEAAAAPAAIAAAABAAEAAAAOAAIAAAABAAEAAAAOAAMAAAABAAEAAAANAAQAAAAAAAIAAAAOAAQAAAABAAIAAAAPAAQAAAACAAIAAAAPAAMAAAABAAEAAAAQAAMAAAACAAIAAAAQAAIAAAACAAEAAAARAAEAAAABAAIAAAAQAAEAAAABAAEAAAAQAAAAAAABAAEAAAAQAP//AAABAAMAAAARAP//AAABAAAAAAAQAP7/AAACAAAAAAARAAAAAAABAAEAAAASAAEAAAABAAIAAAASAAAAAAABAAEAAAASAP//AAABAAAAAAATAP//AAACAAAAAAATAAAAAAACAAEAAAATAAEAAAACAAIAAAAFAP3/AAABAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAIAAAAFAP7/AAABAAIAAAAGAP7/AAABAAIAAAAGAP3/AAABAAAAAAAHAP3/AAABAAAAAAAHAP7/AAABAAIAAAAIAP7/AAACAAIAAAAIAP3/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_egdpp")
