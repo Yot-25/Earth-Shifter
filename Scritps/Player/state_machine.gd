@@ -7,12 +7,12 @@ extends Node
 @onready var place_state: Node = $placeState
 @onready var jump_state: Node = $jumpState
 @onready var launch_state: Node = $launchState
-var stateDictionary: Dictionary[STATES, Node]
+var stateDictionary: Dictionary[int, Node]
 var disableNode: int = 4
 var enableNode: int = 0
 
 enum STATES {IDLE, WALK, JUMP, LAUNCH, PLACE}
-var currentState: STATES = STATES.IDLE
+var currentState: int = STATES.IDLE
 
 func _ready() -> void:
 	stateDictionary = {
@@ -25,12 +25,15 @@ func _ready() -> void:
 	ChangeState(STATES.IDLE)
 
 
-func ChangeState(newState:STATES) -> void:
+func ChangeState(index:int) -> void:
 	Disable()
-	currentState = newState
-	stateDictionary.get(newState).OnEnter()
+	SetCurrentState(index)
+	stateDictionary.get(currentState).OnEnter()
 	Enable()
-	
+
+func SetCurrentState(stateIndex:int)-> void:
+	currentState = stateIndex
+		
 func Disable() ->void:
 	stateDictionary.get(currentState).process_mode = disableNode
 	

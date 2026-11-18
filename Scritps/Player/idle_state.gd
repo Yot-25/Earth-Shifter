@@ -1,13 +1,13 @@
 extends baseState
 
-@onready var animator: AnimatedSprite2D = $"../../animator"
 
 func _input(event: InputEvent) -> void:
-	pass
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		ExitState(1)
+	elif event.is_action_pressed("jump"):
+		player.velocity.y = -250.0
+		ExitState(2)
 	
 func OnEnter() -> void:
 	print("Idle Entered")
 	animator.play("idle")
-	
-func OnExit() -> void:
-	pass
