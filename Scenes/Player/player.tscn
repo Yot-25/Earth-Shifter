@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dxfajeo4arwnu" path="res://Scritps/Player/launch_state.gd" id="7_jlvik"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5hse1"]
-radius = 2.0
+radius = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xpcdj"]
 atlas = ExtResource("2_a3d8c")
@@ -46,10 +46,6 @@ region = Rect2(144, 144, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_74mp2"]
 atlas = ExtResource("2_a3d8c")
 region = Rect2(192, 144, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oikmp"]
-atlas = ExtResource("2_a3d8c")
-region = Rect2(0, 144, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06tpx"]
 atlas = ExtResource("2_a3d8c")
@@ -142,14 +138,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oikmp")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_06tpx")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"place",
-"speed": 2.0
+"speed": 0.1
 }, {
 "frames": [{
 "duration": 1.0,
@@ -226,4 +219,6 @@ script = ExtResource("7_jlvik")
 [node name="animator" type="AnimatedSprite2D" parent="." unique_id=467692807 groups=["animator"]]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_egdpp")
-animation = &"place"
+animation = &"launch"
+frame = 2
+frame_progress = 1.0

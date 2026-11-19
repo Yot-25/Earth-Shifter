@@ -7,6 +7,10 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("jump"):
 		player.velocity.y = -250.0
 		ExitState(2)
+	elif event.is_action_pressed("place"):
+		ExitState(4)
+	elif event.is_action_pressed("launch"):
+		ExitState(3)
 	
 func OnEnter() -> void:
 	print("Idle Entered")

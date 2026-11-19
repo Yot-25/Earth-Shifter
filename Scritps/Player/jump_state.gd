@@ -1,7 +1,6 @@
 extends baseState
 
 var airSpeed = 80
-const JUMP_VELOCITY = -250
 var hasJumped:bool = false
 func OnEnter() -> void:
 	JumpChange()
@@ -15,6 +14,9 @@ func _physics_process(delta: float) -> void:
 	if not player.is_on_floor():
 		player.velocity += player.get_gravity() * delta
 	if player.is_on_floor() and hasJumped == true and direction:
+		hasJumped = false
+		ExitState(1)	
+	elif player.is_on_floor() and hasJumped == true :
 		hasJumped = false
 		ExitState(1)	
 	FaceDirection()

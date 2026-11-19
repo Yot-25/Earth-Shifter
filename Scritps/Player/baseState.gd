@@ -1,6 +1,7 @@
 @abstract class_name baseState extends Node
 @onready var player:CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var animator: AnimatedSprite2D = get_tree().get_first_node_in_group("animator")
+@onready var earthManager: Node2D = get_tree().get_first_node_in_group("earth")
 var direction:float 
 @abstract func OnEnter() -> void
 

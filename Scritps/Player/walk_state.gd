@@ -9,7 +9,7 @@ const SPEED = 100.0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
-		player.velocity.y = -250.0
+		player.velocity.y = -310.0
 		ExitState(2)
 	
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byovajopegr3u"]
+
+[ext_resource type="Texture2D" uid="uid://cpqkfni3rkmlo" path="res://Assets/earth_block.png" id="1_krm8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlvik"]
+size = Vector2(12, 26)
+
+[node name="EarthBlock" type="AnimatableBody2D" unique_id=835425065]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=450771711]
+z_index = -1
+position = Vector2(1, -16)
+texture = ExtResource("1_krm8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054862708]
+position = Vector2(2, -14)
+shape = SubResource("RectangleShape2D_jlvik")

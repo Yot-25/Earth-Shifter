@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bcikonlm1h7h8"]
+
+[ext_resource type="Script" uid="uid://d2w3ori66db4x" path="res://Scritps/Enviroment/earth_manager.gd" id="1_bkqf0"]
+[ext_resource type="PackedScene" uid="uid://byovajopegr3u" path="res://Scenes/Player/earth_block.tscn" id="2_o7ijj"]
+
+[node name="EarthManager" type="Node2D" unique_id=242986616 groups=["earth"]]
+script = ExtResource("1_bkqf0")
+earth_block = ExtResource("2_o7ijj")
+spawnOffset = 5.0
