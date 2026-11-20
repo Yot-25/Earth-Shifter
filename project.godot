@@ -17,6 +17,7 @@ config/icon="res://Assets/PNG/icon.svg"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -26,6 +27,7 @@ Block=""
 player=""
 animator=""
 earth=""
+map=""
 
 [input]
 
